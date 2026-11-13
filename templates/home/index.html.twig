@@ -1,0 +1,235 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Home | Hay Park Cricket Club{% endblock %}
+
+{% block body %}
+
+    {# HERO SECTION #}
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="hero-eyebrow">
+                        WELCOME TO HAY PARK CRICKET CLUB
+                    </span>
+
+                    <h1 class="hero-title mt-3">
+                        One Club.<br>
+                        One Community.<br>
+                        <span class="brand-accent">Our Cricket.</span>
+                    </h1>
+
+                    <p class="hero-description mt-4">
+                        Your home for club cricket, upcoming fixtures,
+                        match results and everything happening at
+                        Hay Park Cricket Club.
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#fixtures" class="btn btn-club btn-lg">
+                            View Fixtures
+                        </a>
+
+                        <a href="#join" class="btn btn-outline-light btn-lg">
+                            Join Our Club
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# QUICK LINKS #}
+    <section class="quick-links py-4">
+        <div class="container">
+            <div class="row g-3 text-center">
+
+                <div class="col-md-4">
+                    <a href="#fixtures" class="quick-link-card">
+                        <h5>Upcoming Fixtures</h5>
+                        <span>See who's playing next &rarr;</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="#results" class="quick-link-card">
+                        <h5>Latest Results</h5>
+                        <span>Catch up on recent matches &rarr;</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="#join" class="quick-link-card">
+                        <h5>Play Cricket</h5>
+                        <span>Become a club member &rarr;</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {# FIXTURES #}
+    <section id="fixtures" class="section-padding bg-light">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">MATCH CENTRE</span>
+                    <h2>Upcoming Fixtures</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                {% for fixture in fixtures %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="match-card h-100">
+                            <div class="match-card-header">
+                                <span>{{ fixture.grade }}</span>
+                                <span class="match-status">Upcoming</span>
+                            </div>
+
+                            <div class="match-card-body">
+                                <p class="match-date">{{ fixture.date }}</p>
+
+                                <h5>{{ fixture.homeTeam }}</h5>
+                                <div class="versus">VS</div>
+                                <h5>{{ fixture.awayTeam }}</h5>
+
+                                <hr>
+
+                                <p class="match-venue mb-0">
+                                    {{ fixture.venue }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-12">
+                        <p>No upcoming fixtures are available yet.</p>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    {# RESULTS #}
+    <section id="results" class="section-padding">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">MATCH CENTRE</span>
+                    <h2>Latest Results</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                {% for result in results %}
+                    <div class="col-lg-6">
+                        <div class="result-card">
+                            <div class="d-flex justify-content-between">
+                                <span class="fw-semibold">{{ result.grade }}</span>
+                                <span class="text-muted small">
+                                    {{ result.date }}
+                                </span>
+                            </div>
+
+                            <hr>
+
+                            <div class="score-row">
+                                <span>{{ result.homeTeam }}</span>
+                                <strong>{{ result.homeScore }}</strong>
+                            </div>
+
+                            <div class="score-row">
+                                <span>{{ result.awayTeam }}</span>
+                                <strong>{{ result.awayScore }}</strong>
+                            </div>
+
+                            <p class="result-outcome mt-3 mb-0">
+                                {{ result.outcome }}
+                            </p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-12">
+                        <p>No recent results are available yet.</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    {# ABOUT #}
+    <section id="about" class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+                    <span class="section-label">OUR CLUB</span>
+                    <h2 class="mb-4">More Than Just Cricket</h2>
+
+                    <p class="lead">
+                        Welcome to Hay Park Cricket Club.
+                    </p>
+
+                    <p>
+                        Whether you're a player, supporter, volunteer
+                        or looking to get involved, this is your
+                        home for everything happening at the club.
+                    </p>
+
+                    <p>
+                        Discover our teams, follow our progress
+                        throughout the season and keep up with
+                        the latest club news.
+                    </p>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="club-photo-placeholder">
+                        <span>Club photograph coming soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {# REGISTRATION #}
+    <section id="join" class="join-section text-center">
+        <div class="container">
+            <h2>Want to Play Cricket?</h2>
+            <p class="lead mt-3">
+                Join Hay Park Cricket Club and become part of
+                our cricket community.
+            </p>
+
+            <p class="small mt-4 mb-0">
+                Online registration details coming soon.
+            </p>
+        </div>
+    </section>
+
+    {# SPONSORS #}
+    <section id="sponsors" class="section-padding">
+        <div class="container text-center">
+            <span class="section-label">OUR PARTNERS</span>
+            <h2 class="mb-4">Club Sponsors</h2>
+
+            <p class="text-muted">
+                We're grateful for the support of our club sponsors.
+            </p>
+
+            <div class="sponsor-placeholder mt-4">
+                Sponsor logos coming soon
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

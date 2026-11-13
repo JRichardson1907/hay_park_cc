@@ -1,3 +1,369 @@
+
+:root {
+    --club-navy: #211B1B;
+    --club-dark: #151313;
+    --club-gold: #D71920;
+    --club-light: #F7F7F7;
+}
+
 body {
-    background-color: skyblue;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #253342;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* NAVIGATION */
+
+.site-navbar {
+    background: var(--club-navy);
+    padding: 18px 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.brand-accent {
+    color: var(--club-gold);
+}
+
+.site-navbar .nav-link {
+    color: #fff;
+    font-weight: 500;
+}
+
+.site-navbar .nav-link:hover {
+    color: var(--club-gold);
+}
+
+.btn-club {
+    background: var(--club-gold);
+    color: var(--club-dark);
+    font-weight: 700;
+    padding: 12px 25px;
+    border-radius: 5px;
+}
+
+.btn-club:hover {
+    background: #f1ca77;
+    color: var(--club-dark);
+}
+
+/* HERO */
+
+.hero-section {
+    background: linear-gradient(
+        120deg,
+        #10243a 0%,
+        #1d3b56 100%
+    );
+
+    color: white;
+    padding: 115px 0 130px;
+}
+
+.hero-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--club-gold);
+    font-weight: bold;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.08;
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    max-width: 590px;
+    color: #d5dfeb;
+}
+
+/* QUICK LINKS */
+
+.quick-links {
+    background: var(--club-dark);
+}
+
+.quick-link-card {
+    display: block;
+    padding: 22px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #34475c;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.quick-link-card h5 {
+    font-weight: bold;
+}
+
+.quick-link-card span {
+    color: #c6d3e0;
+    font-size: 0.9rem;
+}
+
+.quick-link-card:hover {
+    background: #1b344f;
+    transform: translateY(-3px);
+}
+
+/* SECTIONS */
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.section-label {
+    display: inline-block;
+    color: #9a7022;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.section-heading h2,
+.section-padding h2 {
+    font-weight: 800;
+    color: var(--club-navy);
+}
+
+/* FIXTURES */
+
+.match-card {
+    background: white;
+    border: 1px solid #e2e7ed;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.match-card-header {
+    background: var(--club-navy);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.match-status {
+    background: var(--club-gold);
+    color: var(--club-dark);
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.match-card-body {
+    padding: 28px 22px;
+    text-align: center;
+}
+
+.match-card-body h5 {
+    font-weight: 700;
+}
+
+.match-date {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.versus {
+    color: #9c7a32;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.match-venue {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* RESULTS */
+
+.result-card {
+    background: white;
+    border: 1px solid #e2e7ed;
+    border-radius: 10px;
+    padding: 25px;
+    height: 100%;
+}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 1rem;
+}
+
+.score-row strong {
+    font-size: 1.25rem;
+    color: var(--club-navy);
+}
+
+.result-outcome {
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* ABOUT */
+
+.club-photo-placeholder {
+    min-height: 320px;
+    border-radius: 10px;
+    background: #e1e7ef;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* JOIN */
+
+.join-section {
+    background: var(--club-navy);
+    color: white;
+    padding: 85px 0;
+}
+
+.join-section h2 {
+    font-weight: 800;
+}
+
+/* SPONSORS */
+
+.sponsor-placeholder {
+    border: 2px dashed #d3dbe4;
+    padding: 50px 20px;
+    border-radius: 10px;
+    color: #64748b;
+}
+
+/* FOOTER */
+
+.site-footer {
+    background: var(--club-dark);
+    color: white;
+}
+
+.site-footer a {
+    display: block;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--club-gold);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 75px 0 85px;
+    }
+
+    .section-padding {
+        padding: 55px 0;
+    }
+
+    .match-card-body {
+        padding: 24px 16px;
+    }
+}
+
+
+/* REDBACKS BRANDING */
+
+.hero-section {
+    background: linear-gradient(
+        110deg,
+        rgba(20, 17, 17, 0.98),
+        rgba(70, 10, 13, 0.95)
+    );
+}
+
+.hero-title {
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.brand-accent {
+    color: #E5252A;
+}
+
+.btn-club {
+    background: #D71920;
+    color: white;
+    border: 1px solid #D71920;
+}
+
+.btn-club:hover {
+    background: #B8141B;
+    color: white;
+}
+
+.section-label {
+    color: #C51820;
+}
+
+.match-status {
+    background: #D71920;
+    color: white;
+}
+
+.versus {
+    color: #D71920;
+}
+
+.site-navbar .nav-link:hover {
+    color: #FF555B;
+}
+
+
+.club-logo {
+    width: 55px;
+    height: 65px;
+    object-fit: contain;
+}
+
+@media (max-width: 576px) {
+    .club-logo {
+        width: 42px;
+        height: 50px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
 }
