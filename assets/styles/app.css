@@ -367,3 +367,271 @@ html {
         font-size: 1rem;
     }
 }
+
+
+/* =====================================
+   HAY PARK REDBACKS MATCH CENTRE
+===================================== */
+
+.match-centre {
+    background: #f5f5f5;
+}
+
+.match-centre-heading {
+    margin-bottom: 35px;
+}
+
+.match-centre-heading h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #211b1b;
+}
+
+.match-centre-heading p {
+    color: #6b7280;
+}
+
+.match-centre-panel {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.04);
+}
+
+.match-centre .form-label {
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.match-centre .form-select {
+    min-height: 48px;
+    border: 1px solid #d9dfe5;
+    border-radius: 6px;
+}
+
+.match-centre .form-select:focus {
+    border-color: #D71920;
+    box-shadow: 0 0 0 0.2rem rgba(215, 25, 32, 0.12);
+}
+
+/* TOOLBAR */
+
+.match-centre-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.match-centre-count {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-arrow {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d9dfe5;
+    background: white;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+    background: #D71920;
+    color: white;
+    border-color: #D71920;
+}
+
+.carousel-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* CAROUSEL */
+
+.fixture-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    padding: 5px 2px 15px;
+}
+
+.fixture-card {
+    flex: 0 0 365px;
+    scroll-snap-align: start;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    background: #fff;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 370px;
+    transition: border-color 0.2s ease;
+}
+
+.fixture-card:hover {
+    border-color: #D71920;
+}
+
+.fixture-card[hidden],
+.match-centre-empty[hidden] {
+    display: none !important;
+}
+
+/* HEADER */
+
+.fixture-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.round-badge {
+    background: #fce8e9;
+    color: #a91219;
+    font-weight: 800;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fixture-status {
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.fixture-status.upcoming {
+    background: #fff1e5;
+    color: #9a4c00;
+}
+
+.fixture-status.completed {
+    background: #e7f5ea;
+    color: #176b35;
+}
+
+/* TEAMS */
+
+.fixture-teams {
+    padding: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    flex: 1;
+}
+
+.fixture-team {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.team-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #211b1b;
+    color: white;
+    border: 2px solid #D71920;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.team-name {
+    font-weight: 700;
+    color: #293241;
+    line-height: 1.3;
+}
+
+.team-score {
+    margin-left: auto;
+    white-space: nowrap;
+    font-size: 1.05rem;
+    color: #211b1b;
+}
+
+/* MATCH DETAILS */
+
+.fixture-card-bottom {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 15px;
+    color: #677181;
+    font-size: 0.83rem;
+}
+
+.fixture-card-bottom > div {
+    margin-bottom: 8px;
+}
+
+.match-detail-icon {
+    display: inline-block;
+    width: 20px;
+    color: #D71920;
+    font-weight: bold;
+}
+
+.fixture-result {
+    margin-top: 12px;
+    padding: 10px;
+    background: #f9e7e8;
+    border-radius: 5px;
+    color: #9e1720;
+    font-weight: 700;
+}
+
+.match-centre-empty {
+    padding: 40px;
+    text-align: center;
+    color: #6b7280;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.match-centre-disclaimer {
+    margin: 20px 0 0;
+    font-size: 0.75rem;
+    color: #8a8f98;
+    text-align: right;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .match-centre-panel {
+        padding: 20px 15px;
+    }
+
+    .fixture-card {
+        flex-basis: min(85vw, 365px);
+        padding: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fixture-carousel {
+        scroll-behavior: auto;
+    }
+}
+

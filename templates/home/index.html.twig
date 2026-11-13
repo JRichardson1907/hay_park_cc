@@ -15,15 +15,13 @@
                     </span>
 
                     <h1 class="hero-title mt-3">
-                        One Club.<br>
-                        One Community.<br>
-                        <span class="brand-accent">Our Cricket.</span>
+                        TASTE THE<br>
+                        <span class="brand-accent">POISON.</span>
                     </h1>
 
                     <p class="hero-description mt-4">
-                        Your home for club cricket, upcoming fixtures,
-                        match results and everything happening at
-                        Hay Park Cricket Club.
+                        The official home of Hay Park Redbacks Cricket Club.
+                        Follow our fixtures, results, teams and latest club news.
                     </p>
 
                     <div class="d-flex flex-wrap gap-3 mt-4">
@@ -70,100 +68,10 @@
         </div>
     </section>
 
-    {# FIXTURES #}
-    <section id="fixtures" class="section-padding bg-light">
-        <div class="container">
-
-            <div class="section-heading">
-                <div>
-                    <span class="section-label">MATCH CENTRE</span>
-                    <h2>Upcoming Fixtures</h2>
-                </div>
-            </div>
-
-            <div class="row g-4">
-
-                {% for fixture in fixtures %}
-                    <div class="col-lg-4 col-md-6">
-                        <div class="match-card h-100">
-                            <div class="match-card-header">
-                                <span>{{ fixture.grade }}</span>
-                                <span class="match-status">Upcoming</span>
-                            </div>
-
-                            <div class="match-card-body">
-                                <p class="match-date">{{ fixture.date }}</p>
-
-                                <h5>{{ fixture.homeTeam }}</h5>
-                                <div class="versus">VS</div>
-                                <h5>{{ fixture.awayTeam }}</h5>
-
-                                <hr>
-
-                                <p class="match-venue mb-0">
-                                    {{ fixture.venue }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="col-12">
-                        <p>No upcoming fixtures are available yet.</p>
-                    </div>
-                {% endfor %}
-
-            </div>
-        </div>
-    </section>
-
-    {# RESULTS #}
-    <section id="results" class="section-padding">
-        <div class="container">
-
-            <div class="section-heading">
-                <div>
-                    <span class="section-label">MATCH CENTRE</span>
-                    <h2>Latest Results</h2>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                {% for result in results %}
-                    <div class="col-lg-6">
-                        <div class="result-card">
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-semibold">{{ result.grade }}</span>
-                                <span class="text-muted small">
-                                    {{ result.date }}
-                                </span>
-                            </div>
-
-                            <hr>
-
-                            <div class="score-row">
-                                <span>{{ result.homeTeam }}</span>
-                                <strong>{{ result.homeScore }}</strong>
-                            </div>
-
-                            <div class="score-row">
-                                <span>{{ result.awayTeam }}</span>
-                                <strong>{{ result.awayScore }}</strong>
-                            </div>
-
-                            <p class="result-outcome mt-3 mb-0">
-                                {{ result.outcome }}
-                            </p>
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="col-12">
-                        <p>No recent results are available yet.</p>
-                    </div>
-                {% endfor %}
-            </div>
-
-        </div>
-    </section>
+    {# PLAYHQ-STYLE MATCH CENTRE #}
+    {% include 'components/_match_centre.html.twig' with {
+        matches: matches
+    } %}
 
     {# ABOUT #}
     <section id="about" class="section-padding bg-light">

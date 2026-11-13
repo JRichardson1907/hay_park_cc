@@ -1,0 +1,211 @@
+
+<section id="match-centre" class="match-centre section-padding">
+    <div class="container">
+
+        <div class="match-centre-heading text-center">
+            <span class="section-label">HAY PARK REDBACKS</span>
+            <h2>Fixtures & Results</h2>
+            <p>Follow the Redbacks throughout the season.</p>
+        </div>
+
+        <div
+            class="match-centre-panel"
+            data-controller="match-centre"
+        >
+
+            {# FILTERS #}
+            <div class="row g-3 mb-4">
+
+                <div class="col-md-3 col-sm-6">
+                    <label class="form-label">Competition</label>
+                    <select
+                        class="form-select"
+                        data-match-centre-target="competition"
+                        data-action="change->match-centre#filter"
+                    >
+                        <option value="BDCA">
+                            Bunbury & Districts
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <label class="form-label">Grade</label>
+                    <select
+                        class="form-select"
+                        data-match-centre-target="grade"
+                        data-action="change->match-centre#filter"
+                    >
+                        <option value="Seniors">Seniors</option>
+                        <option value="Juniors">Juniors</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <label class="form-label">Season</label>
+                    <select
+                        class="form-select"
+                        data-match-centre-target="season"
+                        data-action="change->match-centre#filter"
+                    >
+                        <option value="2026/27">2026/27</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <label class="form-label">Team</label>
+                    <select
+                        class="form-select"
+                        data-match-centre-target="team"
+                        data-action="change->match-centre#filter"
+                    >
+                        <option value="all">All Teams</option>
+                        <option value="1st XI">1st XI</option>
+                        <option value="Under 13">Under 13</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="match-centre-toolbar">
+                <span class="match-centre-count"
+                      data-match-centre-target="count"
+                      aria-live="polite">
+                </span>
+
+                <div class="carousel-controls">
+                    <button
+                        type="button"
+                        class="carousel-arrow"
+                        aria-label="Previous fixtures"
+                        data-match-centre-target="previous"
+                        data-action="click->match-centre#previous"
+                    >
+                        &larr;
+                    </button>
+
+                    <button
+                        type="button"
+                        class="carousel-arrow"
+                        aria-label="Next fixtures"
+                        data-match-centre-target="next"
+                        data-action="click->match-centre#next"
+                    >
+                        &rarr;
+                    </button>
+                </div>
+            </div>
+
+            {# FIXTURE CAROUSEL #}
+            <div
+                class="fixture-carousel"
+                data-match-centre-target="carousel"
+                aria-label="Fixtures and results"
+            >
+
+                {% for match in matches %}
+                    <article
+                        class="fixture-card"
+                        data-match-centre-target="card"
+                        data-competition="{{ match.competition }}"
+                        data-grade="{{ match.grade }}"
+                        data-season="{{ match.season }}"
+                        data-team="{{ match.team }}"
+                    >
+                        <div class="fixture-card-top">
+                            <span class="round-badge">
+                                {{ match.round }}
+                            </span>
+
+                            <span class="fixture-status {{ match.status == 'COMPLETED' ? 'completed' : 'upcoming' }}">
+                                {{ match.status|capitalize }}
+                            </span>
+                        </div>
+
+                        <div class="fixture-teams">
+
+                            <div class="fixture-team">
+                                <span class="team-avatar">
+                                    {% if 'Hay Park' in match.homeTeam %}
+                                        HP
+                                    {% else %}
+                                        CC
+                                    {% endif %}
+                                </span>
+
+                                <span class="team-name">
+                                    {{ match.homeTeam }}
+                                </span>
+
+                                {% if match.homeScore %}
+                                    <strong class="team-score">
+                                        {{ match.homeScore }}
+                                    </strong>
+                                {% endif %}
+                            </div>
+
+                            <div class="fixture-team">
+                                <span class="team-avatar">
+                                    {% if 'Hay Park' in match.awayTeam %}
+                                        HP
+                                    {% else %}
+                                        CC
+                                    {% endif %}
+                                </span>
+
+                                <span class="team-name">
+                                    {{ match.awayTeam }}
+                                </span>
+
+                                {% if match.awayScore %}
+                                    <strong class="team-score">
+                                        {{ match.awayScore }}
+                                    </strong>
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+                        <div class="fixture-card-bottom">
+                            <div>
+                                <span class="match-detail-icon">◆</span>
+                                {{ match.format }}
+                            </div>
+
+                            <div>
+                                <span class="match-detail-icon">◷</span>
+                                {{ match.date }} - {{ match.time }}
+                            </div>
+
+                            <div>
+                                <span class="match-detail-icon">⌖</span>
+                                {{ match.venue }}
+                            </div>
+
+                            {% if match.result %}
+                                <div class="fixture-result">
+                                    {{ match.result }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </article>
+                {% endfor %}
+
+            </div>
+
+            <div
+                class="match-centre-empty"
+                data-match-centre-target="empty"
+                hidden
+            >
+                No matches found for this selection.
+            </div>
+
+            <p class="match-centre-disclaimer">
+                Demonstration fixtures only.
+                Official PlayHQ integration coming soon.
+            </p>
+
+        </div>
+    </div>
+</section>
